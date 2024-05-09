@@ -1,0 +1,48 @@
+<div class="card">
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <button
+        pButton
+        icon="pi pi-plus"
+        label="Alumno"
+        (click)="agregarAlumno(null)"
+      ></button>
+    </div>
+  </p-toolbar>
+</div>
+<p-panel header="Alumnos">
+  <p-table [value]="alumnos" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Genero</th>
+        <th>Fecha Nacimiento</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-alumno>
+      <tr>
+        <td>{{ alumno.nombreCompleto }}</td>
+        <td>{{ alumno.genero }}</td>
+        <td>{{ alumno.fechaNacimiento }}</td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            (click)="agregarAlumno(alumno.id)"
+          ></button>
+        </td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-trash"
+            (click)="confirmarEliminar(alumno.id, $event)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
+
+<p-confirmDialog></p-confirmDialog>

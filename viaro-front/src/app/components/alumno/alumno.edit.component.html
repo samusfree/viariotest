@@ -1,0 +1,22 @@
+<p-card header="Alumno">
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <input pInputText id="nombre" [(ngModel)]="alumno.nombre" [pKeyFilter]="'alpha'"/>
+        <label for="nombre">Nombre</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <input pInputText id="apellidos" [(ngModel)]="alumno.apellidos" [pKeyFilter]="'alpha'"/>
+        <label for="apellidos">Apellidos</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <p-dropdown id="genero"[options]="generos" [(ngModel)]="alumno.genero" optionLabel="name" optionValue="value" [showClear]="true" placeholder="Elija un genero"></p-dropdown>
+        <label for="genero">Genero</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <p-calendar id="fechaNacimiento" [(ngModel)]="alumno.fechaNacimiento" dataType="string" dateFormat="dd/mm/yy"></p-calendar>
+        <label for="fechaNacimiento">Fecha nacimiento</label>
+    </span>
+    <ng-template pTemplate="footer">
+        <p-button label="Guardar" icon="pi pi-check" (click)="save()"></p-button>
+        <p-button label="Cancelar" icon="pi pi-times" (click)="cerrar()" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+</p-card>

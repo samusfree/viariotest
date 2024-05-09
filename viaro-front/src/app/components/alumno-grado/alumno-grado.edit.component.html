@@ -1,0 +1,18 @@
+<p-card header="Alumno">
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <p-dropdown id="profesorId"[options]="alumnos" [(ngModel)]="data.alumnoId" optionLabel="nombreCompleto" optionValue="id" [showClear]="true" placeholder="Elija un alumno"></p-dropdown>
+        <label for="profesorId">Alumno</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <p-dropdown id="gradoId"[options]="grados" [(ngModel)]="data.gradoId" optionLabel="nombre" optionValue="id" [showClear]="true" placeholder="Elija un grado"></p-dropdown>
+        <label for="gradoId">Grado</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <input pInputText id="nombre" [(ngModel)]="data.seccion" />
+        <label for="nombre">Seccion</label>
+    </span>
+    <ng-template pTemplate="footer">
+        <p-button label="Guardar" icon="pi pi-check" (click)="save()"></p-button>
+        <p-button label="Cancelar" icon="pi pi-times" (click)="cerrar()" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+</p-card>

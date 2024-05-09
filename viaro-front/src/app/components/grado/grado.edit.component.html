@@ -1,0 +1,16 @@
+<p-card header="Alumno">
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <input pInputText id="nombre" [(ngModel)]="data.nombre" />
+        <label for="nombre">Nombre</label>
+    </span>
+    <span class="p-float-label" style="margin-bottom: 3rem;">
+        <p-dropdown id="profesorId"[options]="profesores" [(ngModel)]="data.profesorId" optionLabel="nombreCompleto" optionValue="id" [showClear]="true" placeholder="Elija un profesor"></p-dropdown>
+        <label for="profesorId">Profesor</label>
+    </span>
+    <ng-template pTemplate="footer">
+        <p-button label="Guardar" icon="pi pi-check" (click)="save()"></p-button>
+        <p-button label="Cancelar" icon="pi pi-times" (click)="cerrar()" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+</p-card>
+
+<p-toast></p-toast>

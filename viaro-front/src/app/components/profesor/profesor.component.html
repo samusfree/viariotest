@@ -1,0 +1,29 @@
+<div class="card">
+    <p-toolbar>
+    <div class="p-toolbar-group-start">
+        <button pButton icon="pi pi-plus" label="Profesor" (click)="agregar(null)"></button>
+    </div>
+    </p-toolbar>
+    </div>
+<p-panel header="Profesores">
+    <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Genero</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-profesor>
+            <tr>
+                <td>{{ profesor.nombre }}</td>
+                <td>{{ profesor.apellidos }}</td>
+                <td>{{ profesor.genero }}</td>
+                <td><button pButton icon="pi pi-pencil" (click)="agregar(profesor.id)"></button></td>
+                <td><button pButton icon="pi pi-trash" (click)="eliminar(profesor.id)"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
